@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- 001 Nameservice logical name -->
+  <property>
+    <name>dfs.nameservices</name>
+    <value>mycluster</value>
+  </property>
+
+  <!-- 002 NameNode IDs under this nameservice -->
+  <property>
+    <name>dfs.ha.namenodes.mycluster</name>
+    <value>nn1,nn2</value>
+  </property>
+
+  <!-- 003 NameNode RPC addresses -->
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+    <value>node01:8020</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+    <value>node02:8020</value>
+  </property>
+
+  <!-- 004 NameNode HTTP (Web UI) addresses -->
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn1</name>
+    <value>node01:9870</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn2</name>
+    <value>node02:9870</value>
+  </property>
+
+  <!-- 005 JournalNode shared edits directory (QJM) -->
+  <property>
+    <name>dfs.namenode.shared.edits.dir</name>
+    <value>qjournal://node01:8485;node02:8485;node03:8485/mycluster</value>
+  </property>
+
+  <!-- 006 Client failover proxy provider -->
+  <property>
+    <name>dfs.client.failover.proxy.provider.mycluster</name>
+    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+
+  <!-- 007 Fencing method -->
+  <property>
+    <name>dfs.ha.fencing.methods</name>
+    <value>shell(/bin/true)</value>
+  </property>
+
+  <!-- 008 Enable automatic failover -->
+  <property>
+    <name>dfs.ha.automatic-failover.enabled</name>
+    <value>true</value>
+  </property>
+
+  <!-- 009 JournalNode local edits storage -->
+  <property>
+    <name>dfs.journalnode.edits.dir</name>
+    <value>/opt/hadoop/dfs/journal</value>
+  </property>
+
+  <!-- 010 NameNode local metadata storage -->
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/opt/hadoop/dfs/name</value>
+  </property>
+
+  <!-- 011 Replication factor = 1 (as required) -->
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+</configuration>

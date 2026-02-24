@@ -1,0 +1,6 @@
+# Hadoop/ZooKeeper binary tarballs
+**/shared/*.tar.gz
+**/shared/*.tgz
+
+# Hadoop runtime data (will be created inside containers)
+**/shared/config/__pycache__/
