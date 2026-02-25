@@ -1,9 +1,9 @@
 #!/bin/bash
-# node02: ZooKeeper + JournalNode + NameNode (Standby) + ZKFC + ResourceManager
+# node02: ZK + JN + NN (Standby) + ZKFC + RM
 
 source /shared/env/profile.sh
 
-# --- ZooKeeper ---
+# ZK
 echo "2" > /opt/zookeeper/data/myid
 zkServer.sh start
 sleep 5
@@ -18,24 +18,24 @@ while true; do
   sleep 2
 done
 
-# --- JournalNode ---
+# JN
 hdfs --daemon start journalnode
 sleep 5
 
-# Wait for node01 NameNode
+# Wait for node01 NN
 while ! nc -z node01 8020 2>/dev/null; do
   sleep 2
 done
 
-# --- NameNode ---
+# NN
 hdfs --daemon start namenode
 sleep 5
 
-# --- ZKFC ---
+# ZKFC
 hdfs --daemon start zkfc
 sleep 3
 
-# --- ResourceManager ---
+# RM
 yarn --daemon start resourcemanager
 
 # Keep container alive
