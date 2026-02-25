@@ -2,70 +2,75 @@ version: "3.9"
 
 services:
   node1:
-    image: ubuntu:24.04
+    image: hadoop-node01:latest
     container_name: node01
     hostname: node01
+    privileged: true
     ports:
       - "8481:8480"
       - "9871:9870"
       - "8081:8088"
-    command: sleep infinity
+    command: bash /shared/scripts/start-node01.sh
     volumes:
       - ./shared:/shared
     networks:
       - cluster-network
 
   node2:
-    image: ubuntu:24.04
+    image: hadoop-node02:latest
     container_name: node02
     hostname: node02
+    privileged: true
     ports:
       - "8482:8480"
       - "9872:9870"
       - "8082:8088"
-    command: sleep infinity
+    command: bash /shared/scripts/start-node02.sh
     volumes:
       - ./shared:/shared
     networks:
       - cluster-network
 
   node3:
-    image: ubuntu:24.04
+    image: hadoop-node03:latest
     container_name: node03
     hostname: node03
+    privileged: true
     ports:
       - "8483:8480"
       - "9873:9870"
       - "8083:8088"
-    command: sleep infinity
+    command: bash /shared/scripts/start-node03.sh
     volumes:
       - ./shared:/shared
     networks:
       - cluster-network
 
   node4:
-    image: ubuntu:24.04
+    image: hadoop-worker:latest
     container_name: node04
     hostname: node04
+    privileged: true
     ports:
       - "8484:8480"
       - "9874:9870"
       - "8084:8088"
-    command: sleep infinity
+    command: bash /shared/scripts/start-worker.sh
     volumes:
       - ./shared:/shared
     networks:
       - cluster-network
 
   node5:
-    image: ubuntu:24.04
+    image: hadoop-worker:latest
     container_name: node05
     hostname: node05
+    privileged: true
     ports:
       - "8485:8480"
       - "9875:9870"
       - "8085:8088"
-    command: sleep infinity
+    command: bash /shared/scripts/start-worker.sh
     volumes:
       - ./shared:/shared
     networks:
