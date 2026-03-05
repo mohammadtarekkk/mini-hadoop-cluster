@@ -1,0 +1,1 @@
+https://github.com/mohammadtarekkk/mini-hadoop-cluster/tree/patch1-5nodes
