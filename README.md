@@ -12,6 +12,10 @@ A 5-node Hadoop High Availability cluster running on Docker with **automatic ser
 | **node04** | DataNode | NodeManager | — |
 | **node05** | DataNode | NodeManager | — |
 
+## Interactive design and Scenarios
+![cluster-demo](https://github.com/user-attachments/assets/41606ccf-d117-4a78-b7ec-759266fb57f7)
+
+
 ## Project Structure
 
 ```
